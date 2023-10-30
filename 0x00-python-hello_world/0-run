@@ -1,0 +1,3 @@
+#!/bin/bash
+py_file_name=$PYFILE
+python3 $py_file_name
