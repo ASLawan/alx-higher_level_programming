@@ -10,5 +10,5 @@ if l_dgt > 5:
     print("is {} and is greater than 5".format(l_dgt))
 elif l_dgt == 0:
     print("is {} and is 0".format(l_dgt))
-elif:
+else:
     print("is {} and is less than 6 and not 0".format(l_dgt))
