@@ -7,7 +7,7 @@ def calculate():
 
     args = sys.argv
     num_args = len(args)
-    if num_args != 4:
+    if num_args - 1 != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
     else:
@@ -22,7 +22,7 @@ def calculate():
             case "*":
                 print("{} {} {} = {}".format(a, b, c, mul(a, c)))
             case "/":
-                print("{} {} {} = {}".format(a, b, c. div(a, c)))
+                print("{} {} {} = {}".format(a, b, c, div(a, c)))
             case _:
                 print("Unknown operator. Available operators: +, -, * and /")
                 exit(1)
