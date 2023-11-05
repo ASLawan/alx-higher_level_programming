@@ -5,7 +5,7 @@ def print_list_integer(my_list=[]):
     num = len(my_list)
     i = 0
     while i < num:
-        print("{}".format(my_list[i]))
+        print("{:d}".format(my_list[i]))
         i += 1
 
 
