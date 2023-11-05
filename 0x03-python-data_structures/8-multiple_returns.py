@@ -3,11 +3,12 @@
 def multiple_returns(sentence):
 
     if sentence == "":
-        return None
+        length = 0
+        letter = "None"
     else:
         length = len(sentence)
         letter = sentence[0]
-        return (length, letter)
+    return (length, letter)
 
 
 if __name__ == "__main__":
