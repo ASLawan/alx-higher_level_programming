@@ -6,29 +6,34 @@
 */
 int is_palindrome(listint_t **head)
 {
-listint_t *reversed_head = NULL;
-listint_t *current = *head;
-listint_t *next = NULL;
+	listint_t *start = *head;
+	listint_t *temp = *head;
+	int i, j, middle, length = 0;
 
-while (current != NULL)
-{
-next = current->next;
-current->next = reversed_head;
-reversed_head = current;
-current = next;
-}
+	if (*head == NULL || (*head)->next == NULL)
+	{
+		return (1);
+	}
+	while (temp)
+	{
+		length += 1;
+		temp = temp->next;
+	}
+	middle = length / 2;
+	int nodes[length];
 
-listint_t *current1 = *head;
-listint_t *current2 = reversed_head;
-while (current1 != NULL && current2 != NULL)
-{
-if (current1->n != current2->n)
-{
-return (0);
-}
-current1 = current1->next;
-current2 = current2->next;
-}
-
-return (1);
+	for (i = 0; start; i++)
+	{
+		nodes[i] = start->n;
+		start = start->next;
+	}
+	j = length - 1;
+	for (i = 0; i < middle; i++, j--)
+	{
+		if (nodes[i] != nodes[j])
+		{
+			return (0);
+		}
+	}
+	return (1);
 }
