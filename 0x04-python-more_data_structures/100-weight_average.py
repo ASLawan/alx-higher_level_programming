@@ -12,7 +12,6 @@ def weight_average(my_list=[]):
         average = sum / weight_sum
     else:
         return 0
-    
     return average
 
 
