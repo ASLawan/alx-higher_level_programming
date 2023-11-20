@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+import sys
+
+
+def safe_print_integer_err(value):
+
+    try:
+        print("{:d}".format(value))
+        return True
+    except Exception as error:
+        sys.stderr.write("Exception: {}\n".format(error))
+        return False
+
+
+if __name__ == "__main__":
+    safe_print_integer_err(value)
