@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Define class Square."""
+
 
 class Square:
     """A class Square that defines a square
