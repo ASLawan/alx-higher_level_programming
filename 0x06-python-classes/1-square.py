@@ -1,15 +1,12 @@
 #!/usr/bin/python3
 
 class Square:
-    """A class Square that defines a square
+    """Class Square that defines square objects
     """
-    def __init__(self, size=0):
+    def __init__(self, size):
+        """ Method to initialize object attributes
+
+        Args:
+            param1 (int): size of the sqaure object
         """
-        Method to initliaze object attributes
-        """
-        if not isinstance(size, int):
-            raise TypeError("Size should be an integer")
-        elif size < 0:
-            raise ValueError("Size cannot be negative")
-        else:
-            self.__size = size
+        self.__size = size
