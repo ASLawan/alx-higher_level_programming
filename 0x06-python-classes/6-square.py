@@ -8,8 +8,8 @@ class Square:
     def __init__(self, size=0, position=(0, 0)):
         """Method that initializeses square objects
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -23,10 +23,9 @@ class Square:
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     @property
     def position(self):
@@ -58,12 +57,12 @@ class Square:
     def my_print(self):
         """Method to print size of square
         """
-        if self.__size == 0:
+        if self.size == 0:
             print()
         else:
-            for i in range(self.__position[1]):
+            for i in range(self.position[1]):
                 print()
-            for i in range(self.size):
+            for i in range(0, self.size):
                 for j in range(self.position[0]):
                     print(" ", end="")
                 for k in range(self.size):
