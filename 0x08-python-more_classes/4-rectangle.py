@@ -2,11 +2,14 @@
 """
     Module with class Rectangle that defines
     rectangle objects
+
 """
 
 
 class Rectangle:
-    """ Class Rectangle that defines rectangle objects"""
+    """
+        Class Rectangle that defines rectangle objects
+    """
 
     def __init__(self, width=0, height=0):
         """Method to initialize object attributes"""

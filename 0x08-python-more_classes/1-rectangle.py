@@ -1,7 +1,14 @@
 #!/usr/bin/python3
+"""
+    Module with class Rectangle that defines rectangle
+    class Rectangle
+
+"""
+
 
 class Rectangle:
-    """Class Rectangle for creating rectangle objects
+    """
+        Class Rectangle for creating rectangle objects
     """
     def __init__(self, width=0, height=0):
         self.__width = width

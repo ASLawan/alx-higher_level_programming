@@ -2,6 +2,7 @@
 """
     Module with function class Rectangle
     Creates class objects attributes and methods
+
 """
 
 

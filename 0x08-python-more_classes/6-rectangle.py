@@ -2,11 +2,14 @@
 """
     Module with class Rectangle that defines
     rectangle objects
+
 """
 
 
 class Rectangle:
-    """ Class Rectangle that defines rectangle objects"""
+    """
+        Class Rectangle that defines rectangle objects
+    """
 
     number_of_instances = 0
 
