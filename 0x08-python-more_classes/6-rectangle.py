@@ -4,6 +4,7 @@
     rectangle objects
 """
 
+
 class Rectangle:
     """ Class Rectangle that defines rectangle objects"""
 

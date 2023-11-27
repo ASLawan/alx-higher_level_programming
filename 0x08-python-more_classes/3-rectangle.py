@@ -4,6 +4,7 @@
     objects, methods and attributes
 """
 
+
 class Rectangle:
     """Class that defines rectangle objects"""
 

@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 """
-    Module with function class Rectangle 
+    Module with function class Rectangle
     Creates class objects attributes and methods
 """
+
 
 class Rectangle:
     """
         class that creates rectangle objects
     """
+
     def __init__(self, width=0, height=0):
         """method that initializes attributes"""
         self.__width = width

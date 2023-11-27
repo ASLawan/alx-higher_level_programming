@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-    Module with class Rectangle that defines 
+    Module with class Rectangle that defines
     rectangle objects
 """
+
 
 class Rectangle:
     """ Class Rectangle that defines rectangle objects"""
