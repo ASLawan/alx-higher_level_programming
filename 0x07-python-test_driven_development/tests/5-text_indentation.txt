@@ -1,0 +1,46 @@
+Test cases for '5-text_indentation' module
+==========================================
+Importing module
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("""Has it been an interesting journey? Yes! learning to code with ALX has been interesting. Is it easy? Definitely No. It has its challenges: long learning hours: fatigue: long hours of debugging: self learning: meeting up with deadlines: tough projects and more.""")
+Has it been an interesting journey?
+<BLANKLINE>
+Yes! learning to code with ALX has been interesting.
+<BLANKLINE>
+Is it easy?
+<BLANKLINE>
+Definitely No.
+<BLANKLINE>
+It has its challenges:
+<BLANKLINE>
+long learning hours:
+<BLANKLINE>
+fatigue:
+<BLANKLINE>
+long hours of debugging:
+<BLANKLINE>
+self learning:
+<BLANKLINE>
+meeting up with deadlines:
+<BLANKLINE>
+tough projects and more.
+>>> text_indentation(2)
+Traceback (most recent call last):
+            ...
+TypeError: text must be a string
+>>> text_indentation()
+Traceback (most recent call last):
+            ...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+>>> text_indentation("Hello! How are you doing?")
+Hello! How are you doing?
+>>> text_indentation(None)
+Traceback (most recent call last):
+            ...
+TypeError: text must be a string
+>>> text_indentation("\n")
+>>> text_indentation("\n\n")
+>>> text_indentation("  Austin?  ")
+Austin?
+>>>

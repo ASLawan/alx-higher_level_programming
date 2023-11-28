@@ -1,0 +1,55 @@
+The test file for '0-add_intger module'
+=============================
+
+Importing add_integer module
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+>>> add_integer(100, -2)
+98
+>>> add_integer(2)
+100
+>>> add_integer(4, "school")
+Traceback (most recent call last):
+            ...
+TypeError: b must be an integer
+>>> add_integer("school")
+Traceback (most recent call last):
+            ...
+TypeError: a must be an integer
+>>> add_integer("austin", "lawan")
+Traceback (most recent call last):
+            ...
+TypeError: a must be an integer
+>>> add_integer(7, 10.5)
+17
+>>> add_integer(7, '7')
+Traceback (most recent call last):
+            ...
+TypeError: b must be an integer
+>>> add_integer('7', '7')
+Traceback (most recent call last):
+            ...
+TypeError: a must be an integer
+>>> add_integer([3])
+Traceback (most recent call last):
+            ...
+TypeError: a must be an integer
+>>> add_integer([3], 3)
+Traceback (most recent call last):
+            ...
+TypeError: a must be an integer
+>>> add_integer((3), 3)
+6
+>>> add_integer((3, 3))
+Traceback (most recent call last):
+            ...
+TypeError: a must be an integer
+>>> add_integer(3.5, 3.5)
+6
+>>> add_integer(-10)
+88
+>>> add_integer('-10')
+Traceback (most recent call last):
+            ...
+TypeError: a must be an integer
