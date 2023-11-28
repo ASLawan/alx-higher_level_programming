@@ -16,8 +16,8 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """Method to initialize object attributes"""
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -50,28 +50,28 @@ class Rectangle:
 
     def area(self):
         """Method that returns area of object"""
-        return self.__height * self.__width
+        return self.height * self.width
 
     def perimeter(self):
         """Method that returns perimeter of object"""
-        if self.__height == 0 or self.__width == 0:
+        if self.height == 0 or self.width == 0:
             return 0
-        return (self.__height + self.__width) * 2
+        return (self.height + self.width) * 2
 
     def __str__(self):
         """Method that prints object in user_friendly output"""
         rectangle = ""
 
-        if self.__height == 0 or self.__width == 0:
+        if self.height == 0 or self.width == 0:
             return rectangle
-        for i in range(self.__height):
-            rectangle += (str(self.print_symbol) * self.__width) + "\n"
+        for i in range(self.height):
+            rectangle += (str(self.print_symbol) * self.width) + "\n"
 
         return rectangle[:-1]
 
     def __repr__(self):
         """Method that prints object in developer_friendly output"""
-        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+        return "Rectangle({:d}, {:d})".format(self.width, self.height)
 
     def __del__(self):
         """Method that deletes class instance - object"""
@@ -85,9 +85,7 @@ class Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect_1.area() == rect_2.area():
-            return rect_1
-        if rect_1.area() > rect_2.area():
+        if rect_1.area() >= rect_2.area():
             return rect_1
         else:
             return rect_2

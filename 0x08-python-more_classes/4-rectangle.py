@@ -13,8 +13,8 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """Method to initialize object attributes"""
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def height(self):
@@ -46,25 +46,25 @@ class Rectangle:
 
     def area(self):
         """Method that returns area of object"""
-        return self.__height * self.__width
+        return self.height * self.width
 
     def perimeter(self):
         """Method that returns perimeter of object"""
-        if self.__height == 0 or self.__width == 0:
+        if self.height == 0 or self.width == 0:
             return 0
-        return (self.__height + self.__width) * 2
+        return (self.height + self.width) * 2
 
     def __str__(self):
         """Method that prints object in user_friendly output"""
         rectangle = ""
 
-        if self.__height == 0 or self.__width == 0:
+        if self.height == 0 or self.width == 0:
             return rectangle
-        for i in range(self.__height):
-            rectangle += ("#" * self.__width) + "\n"
+        for i in range(self.height):
+            rectangle += ("#" * self.width) + "\n"
 
         return rectangle[:-1]
 
     def __repr__(self):
         """Method that prints object in developer_friendly output"""
-        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+        return "Rectangle({:d}, {:d})".format(self.width, self.height)
