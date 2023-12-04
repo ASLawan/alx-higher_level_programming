@@ -1,0 +1,72 @@
+Test cases for '1-my_list' module
+==================================
+
+Importing module
+>>> MyList = __import__('1-my_list').MyList
+>>> _list = MyList()
+>>> _list.append(1)
+>>> _list.append(4)
+>>> _list.append(2)
+>>> _list.append(3)
+>>> _list.append(5)
+>>> print(_list)
+[1, 4, 2, 3, 5]
+>>> _list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(_list)
+[1, 4, 2, 3, 5]
+>>> _list = MyList()
+>>> _list.append(-5)
+>>> _list.append(-3)
+>>> _list.append(3)
+>>> _list.append(7)
+>>> _list.append(0)
+>>> _list.append(-9)
+>>> print(_list)
+[-5, -3, 3, 7, 0, -9]
+>>> _list.print_sorted()
+[-9, -5, -3, 0, 3, 7]
+>>> _list = MyList()
+>>> _list.append(7)
+>>> print(_list)
+[7]
+>>> _list.print_sorted()
+[7]
+>>> _list = MyList()
+>>> _list.append(2)
+>>> _list.append(2)
+>>> _list.append(5)
+>>> _list.append(8)
+>>> _list.append(9)
+>>> _list.append(5)
+>>> print(_list)
+[2, 2, 5, 8, 9, 5]
+>>> _list.print_sorted()
+[2, 2, 5, 5, 8, 9]
+>>> _list = MyList()
+>>> print(_list)
+[]
+>>> _list.print_sorted()
+[]
+>>> _list = MyList()
+>>> type(_list) == MyList
+True
+>>> _list = MyList()
+>>> issubclass(MyList, list)
+True
+>>> _list = MyList()
+>>> isinstance(_list, list)
+True
+>>> _list = MyList()
+>>> _list.print_sorted([5, 6, 7])
+Traceback (most recent call last):
+            ...
+TypeError: MyList.print_sorted() takes 1 positional argument but 2 were given
+>>> _list = MyList()
+>>> _list.print_sorted([5, 6, 7], [2, 3, 4])
+Traceback (most recent call last):
+            ...
+TypeError: MyList.print_sorted() takes 1 positional argument but 3 were given
+>>> _list = MyList()
+>>> type(_list.print_sorted)
+<class 'method'>
