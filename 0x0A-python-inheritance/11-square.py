@@ -47,13 +47,12 @@ class Square(Rectangle):
         """Method that initializes square object"""
         self.integer_validator("size", size)
         self.__size = size
-
         super().__init__(self.__size, self.__size)
 
     def area(self):
         """Method that computes area of a square"""
         return super().area()
-    
+
     def __str__(self):
         """Method that prints formated square object output"""
         return "[Square] {}/{}".format(self.__size, self.__size)
