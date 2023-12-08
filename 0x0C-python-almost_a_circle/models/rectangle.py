@@ -85,3 +85,13 @@ class Rectangle(Base):
             for j in range(self.__width):
                 print("#", end='')
             print()
+
+    def __str__(self):
+        """Method that prints instance objects in given format"""
+        rect = "[Rectangle]"
+        _id = " ({})".format(self.id)
+        _xy = " {}/{} - ".format(self.__x, self.__y)
+        _wh = "{}/{}".format(self.__width, self.__height)
+
+        return rect + _id + _xy + _wh
+
