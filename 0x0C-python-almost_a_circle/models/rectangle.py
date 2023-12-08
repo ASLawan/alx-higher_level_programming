@@ -82,7 +82,13 @@ class Rectangle(Base):
     def display(self):
         """Method that prints object to stdout using '#'"""
         for i in range(self.__height):
+            if i == 0:
+                while self.__y > 0:
+                    print()
+                    self.__y -= 1
             for j in range(self.__width):
+                if j == 0:
+                    print(" " * self.__x, end='')
                 print("#", end='')
             print()
 
