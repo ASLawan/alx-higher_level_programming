@@ -12,10 +12,10 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Method that initialises Rectangle objects"""
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
@@ -28,7 +28,7 @@ class Rectangle(Base):
         """Method to set value of width"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
-        elif value <= 0:
+        if value <= 0:
             raise ValueError("width mmust be > 0")
         self.__width = value
 
@@ -42,7 +42,7 @@ class Rectangle(Base):
         """Method that sets height value"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
-        elif value <= 0:
+        if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
 
@@ -56,7 +56,7 @@ class Rectangle(Base):
         """Method that sets value of x"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("x mmust be >= 0")
         self.__x = value
 
@@ -70,25 +70,25 @@ class Rectangle(Base):
         """Method that sets value of y"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("y mmust be >= 0")
         self.__y = value
 
     
     def area(self):
         """Computes and returns area of rectangle object"""
-        return self.__height * self.__width
+        return self.height * self.width
 
     def display(self):
         """Method that prints object to stdout using '#'"""
-        for i in range(self.__height):
+        for i in range(self.height):
             if i == 0:
-                while self.__y > 0:
+                while self.y > 0:
                     print()
-                    self.__y -= 1
-            for j in range(self.__width):
+                    self.y -= 1
+            for j in range(self.width):
                 if j == 0:
-                    print(" " * self.__x, end='')
+                    print(" " * self.x, end='')
                 print("#", end='')
             print()
 
@@ -96,8 +96,8 @@ class Rectangle(Base):
         """Method that prints instance objects in given format"""
         rect = "[Rectangle]"
         _id = " ({})".format(self.id)
-        _xy = " {}/{} - ".format(self.__x, self.__y)
-        _wh = "{}/{}".format(self.__width, self.__height)
+        _xy = " {}/{} - ".format(self.x, self.y)
+        _wh = "{}/{}".format(self.width, self.height)
 
         return rect + _id + _xy + _wh
 
@@ -114,4 +114,12 @@ class Rectangle(Base):
             for k, v in kwargs.items():
                 setattr(self, k, v)
         
+    def to_dictionary(self):
+        """Method that returns dictionary representation of Rectangle object"""
+        attrs = ['id', 'width', 'height', 'x', 'y']
+        rect_dict = {}
 
+        for key in attrs:
+            rect_dict[key] = getattr(self, key)
+
+        return rect_dict
