@@ -101,13 +101,17 @@ class Rectangle(Base):
 
         return rect + _id + _xy + _wh
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Method that updates object attributes"""
-        attr = ["id", "width", "height", "x", "y"]
-        lenn = len(args)
-        i = 0
-        while i < lenn:
-            setattr(self, attr[i], args[i])
-            i += 1
+        if args != None and len(args) != 0:
+            attr = ["id", "width", "height", "x", "y"]
+            lenn = len(args)
+            i = 0
+            while i < lenn:
+                setattr(self, attr[i], args[i])
+                i += 1
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
         
 
