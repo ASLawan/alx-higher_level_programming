@@ -74,7 +74,6 @@ class Rectangle(Base):
             raise ValueError("y mmust be >= 0")
         self.__y = value
 
-    
     def area(self):
         """Computes and returns area of rectangle object"""
         return self.height * self.width
@@ -103,7 +102,7 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """Method that updates object attributes"""
-        if args != None and len(args) != 0:
+        if args is not None and len(args) != 0:
             attr = ["id", "width", "height", "x", "y"]
             lenn = len(args)
             i = 0
@@ -113,7 +112,7 @@ class Rectangle(Base):
         else:
             for k, v in kwargs.items():
                 setattr(self, k, v)
-        
+
     def to_dictionary(self):
         """Method that returns dictionary representation of Rectangle object"""
         attrs = ['id', 'width', 'height', 'x', 'y']

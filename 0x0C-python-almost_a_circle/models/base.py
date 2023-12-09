@@ -18,7 +18,7 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-    
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """Method that returns JSON string representation
@@ -28,7 +28,7 @@ class Base:
             return []
         else:
             return json.dumps(list_dictionaries)
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
         """Method that writes JSON string representation of
@@ -53,7 +53,7 @@ class Base:
             return []
         else:
             return json.loads(json_string)
-    
+
     @classmethod
     def create(cls, **dictionary):
         """Method that returns an instance with all atributes already set"""

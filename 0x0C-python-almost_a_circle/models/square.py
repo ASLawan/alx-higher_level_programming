@@ -18,13 +18,13 @@ class Square(Rectangle):
     def size(self):
         """Method that returns value of size for the object"""
         return self.width
-    
+
     @size.setter
     def size(self, value):
         """Method that sets the value of size for the object"""
         self.width = value
         self.height = value
- 
+
     def __str__(self):
         """Method that prints square objects in given format"""
         sqr = "[Square]"
@@ -36,7 +36,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Method that updates object attributes"""
-        if args != None and len(args) != 0:
+        if args is not None and len(args) != 0:
             attr = ['id', 'size', 'x', 'y']
             lenn = len(args)
             i = 0
@@ -54,7 +54,7 @@ class Square(Rectangle):
                     setattr(self, 'height', v)
                 else:
                     setattr(self, k, v)
-    
+
     def to_dictionary(self):
         """Method that returns dictionary representation of Square object"""
         attrs = ['id', 'size', 'x', 'y']
@@ -66,4 +66,3 @@ class Square(Rectangle):
                 sqr_dict[key] = getattr(self, key)
 
         return sqr_dict
-
