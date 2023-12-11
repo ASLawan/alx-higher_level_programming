@@ -6,6 +6,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 from io import StringIO
 from unittest.mock import patch
+import os
 
 
 class TestBaseClass(unittest.TestCase):
@@ -13,7 +14,7 @@ class TestBaseClass(unittest.TestCase):
 
     def setUp(self):
         """Model to setup environment for each test case"""
-        Base._Base_nb_objects = 0
+        Base._Base__nb_objects = 0
 
     def test_id(self):
         """Test object id"""
@@ -25,14 +26,14 @@ class TestBaseClass(unittest.TestCase):
         new_obj = Base()
         self.assertEqual(new_obj.id, 1)
 
-    def test_class_attribute(self):
+    def test_default_id_2(self):
         """Test class attribute number of objects to object id"""
-        new_obj1 = Base()
-        new_obj2 = Base()
-        new_obj3 = Base()
-        self.assertEqual(new_obj1.id, 1)
-        self.assertEqual(new_obj2.id, 2)
-        self.assertEqual(new_obj3.id, 3)
+        obj1 = Base()
+        obj2 = Base()
+        obj3 = Base()
+        self.assertEqual(obj1.id, 1)
+        self.assertEqual(obj2.id, 2)
+        self.assertEqual(obj3.id, 3)
 
     def test_assigned_ids(self):
         """Test different assigned ids"""
@@ -56,7 +57,7 @@ class TestBaseClass(unittest.TestCase):
     def test_private_attr_access(self):
         """Test accesibility of private class attribute"""
         new_obj = Base()
-        with assertRaises(AttributeError):
+        with self.assertRaises(AttributeError):
             new_obj.__nb__objects
 
     def test_square_save_to_file(self):
@@ -72,6 +73,7 @@ class TestBaseClass(unittest.TestCase):
         except FileNotFoundError:
             pass
 
+        Square.save_to_file([])
         with open("Square.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
@@ -88,5 +90,6 @@ class TestBaseClass(unittest.TestCase):
         except FileNotFoundError:
             pass
 
+        Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
