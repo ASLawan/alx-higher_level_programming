@@ -1,8 +1,8 @@
-# 0x0C. Python Almost a Circle# 0x0C. Python Almost a Circle  
+# 0x0C. Python Almost a Circle 
 This project was an opportunity to review and revise all the  
 concepts we have learnt so far in python with focus on:
 - Classes
-- Inheritance
+- Inheritance  
 The project is broken into the following tasks
 ## Tasks
 ### Task 1 - Base Class
