@@ -26,8 +26,8 @@ class Base:
         """Method that returns JSON string representation
             of dictionaries
         """
-        if list_dictionaries is None:
-            return []
+        if list_dictionaries is None or list_dictionaries == "[]":
+            return "[]"
         else:
             return json.dumps(list_dictionaries)
 
@@ -38,15 +38,17 @@ class Base:
         """
         filename = "{}.json".format(cls.__name__)
         list_dict = []
-        if list_objs is None:
-            list_objs = []
-# list_dict.append(list_objs.to_dictionary())
 
-        for obj in list_objs:
-            list_dict.append(obj.to_dictionary())
+        if not list_objs:
+            pass
+        else:
+            for i in range(len(list_objs)):
+                list_dict.append(list_objs[i].to_dictionary())
+
+        lists = cls.to_json_string(list_dict)
 
         with open(filename, 'w') as f:
-            f.write(cls.to_json_string(list_dict))
+            f.write(lists)
 
     @staticmethod
     def from_json_string(json_string):
