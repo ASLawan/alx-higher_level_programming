@@ -40,8 +40,8 @@ class TestSquareMethods(unittest.TestCase):
         """ Test multiple square objects"""
         new_obj1 = Square(4, 4)
         new_obj2 = Square(7, 7)
-        self.assertEqual(False, new_obj is new_obj2)
-        self.assertEqual(False, new_obj.id == new_obj2.id)
+        self.assertEqual(False, new_obj1 is new_obj2)
+        self.assertEqual(False, new_obj1.id == new_obj2.id)
 
     def test_instance_of_base(self):
         """ Test Square as instance Base class"""
@@ -360,7 +360,7 @@ class TestSquareMethods(unittest.TestCase):
 
         self.assertEqual(new_obj.width, new_obj2.width)
         self.assertEqual(new_obj.height, new_obj2.height)
-        self.assertEqual(new+_obj.x, new_obj2.x)
+        self.assertEqual(new_obj.x, new_obj2.x)
         self.assertEqual(new_obj.y, new_obj2.y)
         self.assertEqual(new_obj.id, new_obj2.id)
 
@@ -409,13 +409,13 @@ class TestSquareMethods(unittest.TestCase):
     def test_create(self):
         """ Test create method """
         dict = {'id': 89}
-        new_obj = Square.create(**dictionary)
+        new_obj = Square.create(**dict)
         self.assertEqual(new_obj.id, 89)
 
     def test_create_2(self):
         """ Test create method """
         dict = {'id': 89, 'size': 1}
-        new_obj = Rectangle.create(**dictionary)
+        new_obj = Rectangle.create(**dict)
         self.assertEqual(new_obj.id, 89)
         self.assertEqual(new_obj.size, 1)
 
@@ -446,4 +446,4 @@ class TestSquareMethods(unittest.TestCase):
         otpt = Square.load_from_file()
 
         for i in range(len(inpt)):
-            self.assertEqual(npt[i].__str__(), otpt[i].__str__())
+            self.assertEqual(inpt[i].__str__(), otpt[i].__str__())
