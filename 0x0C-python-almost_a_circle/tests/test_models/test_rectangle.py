@@ -12,7 +12,7 @@ class TestRectangleMethods(unittest.TestCase):
 
     def setUp(self):
         """Method that setups environment for test modules"""
-        Base._Base.__nb_objects = 0
+        Base._Base__nb_objects = 0
 
     def test_new_object(self):
         """Method to test new object"""
@@ -37,7 +37,7 @@ class TestRectangleMethods(unittest.TestCase):
         new_obj1 = Rectangle(4, 5)
         new_obj2 = Rectangle(6, 7)
         self.assertEqual(False, new_obj1 is new_obj2)
-        self.assertEqual(False, new_obj.id == new_obj2.id)
+        self.assertEqual(False, new_obj1.id == new_obj2.id)
 
     def test_instance_of_object(self):
         """Method to test istance of object as Base"""
@@ -46,75 +46,75 @@ class TestRectangleMethods(unittest.TestCase):
 
     def test_attr_number(self):
         """Test number of object attributes"""
-        with assertRaises(TypeError):
+        with self.assertRaises(TypeError):
             new_obj = Rectangle(7)
 
     def test_no_attrs(self):
         """Method to test for no attribute"""
-        with assertRaises(TypeError):
+        with self.assertRaises(TypeError):
             new_obj = Rectangle()
 
     def test_private_attr_access_width(self):
         """Method test for access to private attribut - width"""
         new_obj = Rectangle(6, 7)
-        with assertRaises(AttributeError):
+        with self.assertRaises(AttributeError):
             new_obj.__width
 
     def test_private_attr_access_height(self):
         """Method test for access to private attribut - height"""
         new_obj = Rectangle(6, 7)
-        with assertRaises(AttributeError):
+        with self.assertRaises(AttributeError):
             new_obj.__height
 
     def test_private_attr_access_x(self):
         """Method test for access to private attribut - x"""
         new_obj = Rectangle(6, 7)
-        with assertRaises(AttributeError):
+        with self.assertRaises(AttributeError):
             new_obj.__x
 
     def test_private_attr_access_y(self):
         """Method test for access to private attribut - y"""
         new_obj = Rectangle(6, 7)
-        with assertRaises(AttributeError):
+        with self.assertRaises(AttributeError):
             new_obj.__y
 
     def test_valid_input_width(self):
         """Method to test valid type for attribute - width"""
-        with assertRaises(TypeError):
+        with self.assertRaises(TypeError):
             new_obj = Rectangle('4', 8, 3, 2, 7)
 
     def test_valid_input_height(self):
         """Method to test valid type for attribute - height"""
-        with assertRaises(TypeError):
+        with self.assertRaises(TypeError):
             new_obj = Rectangle(4, '8', 3, 2, 7)
 
     def test_valid_input_x(self):
         """Method to test valid type for attribute - x"""
-        with assertRaises(TypeError):
+        with self.assertRaises(TypeError):
             new_obj = Rectangle(4, 8, '3', 2, 7)
 
     def test_valid_input_y(self):
         """Method to test valid type for attribute - y"""
-        with assertRaises(TypeError):
+        with self.assertRaises(TypeError):
             new_obj = Rectangle(4, 8, 3, '2', 7)
 
     def test_valid_input_1(self):
         """Method to test valid input for attribute - width"""
-        with assertRaises(ValueError):
+        with self.assertRaises(ValueError):
             new_obj = Rectangle(0, 8, 3, 2, 7)
 
     def test_valid_input_2(self):
         """Method to test for valid input for attribute - height"""
-        with assertRaises(ValueError):
+        with self.assertRaises(ValueError):
             new_obj = Rectangle(4, 0, 3, 2, 7)
 
     def test_valid_input_3(self):
         """Method to test for valid input for attribute - x"""
-        with assertRaises(ValueError):
+        with self.assertRaises(ValueError):
             new_obj = Rectangle(4, 8, -3, 2, 7)
 
     def test_valid_input_4(self):
-        with assertRaises(ValueError):
+        with self.assertRaises(ValueError):
             new_obj = Rectangle(4, 8, 3, -2, 7)
 
     def test_area_1(self):
@@ -134,7 +134,7 @@ class TestRectangleMethods(unittest.TestCase):
     def test_area_3(self):
         """Method to test area of objects"""
         new_obj1 = Rectangle(2, 4)
-        self.assertEqual(new_obj.area(), 8)
+        self.assertEqual(new_obj1.area(), 8)
         new_obj2 = Rectangle(7, 7)
         self.assertEqual(new_obj2.area(), 49)
 
@@ -192,7 +192,7 @@ class TestRectangleMethods(unittest.TestCase):
         new_obj = Rectangle(4, 8, 3, 2)
         result = "[Rectangle] (1) 3/2 - 4/8\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
-            print(new-obj)
+            print(new_obj)
             self.assertEqual(str_out.getvalue(), result)
 
     def test_format_2(self):
@@ -220,13 +220,13 @@ class TestRectangleMethods(unittest.TestCase):
             self.assertEqual(str_out.getvalue(), result)
 
         new_obj2 = Rectangle(2, 4, 3, 2)
-        result = "[Rectangle} (2) 3/2 - 2/4"
+        result = "[Rectangle] (2) 3/2 - 2/4\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(new_obj2)
             self.assertEqual(str_out.getvalue(), result)
 
         new_obj3 = Rectangle(7, 7, 7, 7)
-        result = "[Rectangle] (3) 7/7 - 7/7"
+        result = "[Rectangle] (3) 7/7 - 7/7\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
             print(new_obj3)
             self.assertEqual(str_out.getvalue(), result)
@@ -255,7 +255,7 @@ class TestRectangleMethods(unittest.TestCase):
         result = "<class 'dict'>\n"
 
         with patch('sys.stdout', new=StringIO()) as str_out:
-            print(type(new_obj.do_dictionary()))
+            print(type(new_obj.to_dictionary()))
             self.assertEqual(str_out.getvalue(), result)
 
     def test_to_dictionary_2(self):
@@ -280,14 +280,14 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(new_obj1.x, new_obj2.x)
         self.assertEqual(new_obj1.y, new_obj2.y)
         self.assertEqual(new_obj1.id, new_obj2.id)
-        result = "<class 'dict'>"
-        with patch('sys.patch', new=StringIO()) as str_out:
+        result = "<class 'dict'>\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
             print(type(new_dict1))
             self.assertEqual(str_out.getvalue(), result)
 
     def test_dict_to_string(self):
         """Test dictionary to string method"""
-        new_obj = Rectangle(4. 8)
+        new_obj = Rectangle(4, 8)
         dict = new_obj.to_dictionary()
         json_dict = Base.to_json_string([dict])
         res = "[{}]\n".format(dict.__str__())
@@ -303,7 +303,7 @@ class TestRectangleMethods(unittest.TestCase):
 
     def test_check_value_2(self):
         """Test arguments passed"""
-        with assertRaises(ValueError):
+        with self.assertRaises(ValueError):
             new_obj = Rectangle(4, -8)
 
     def test_create(self):
@@ -348,7 +348,7 @@ class TestRectangleMethods(unittest.TestCase):
 
     def test_load_from_file(self):
         """Test load_from_file method"""
-        file = Rectangle.laod_from_file()
+        file = Rectangle.load_from_file()
         self.assertEqual(file, [])
 
     def test_load_from_file_2(self):

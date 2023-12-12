@@ -1,4 +1,4 @@
-#!/usr/bin.python
+#!/usr/bin/python3
 """Test case for the class Base"""
 import unittest
 from models.base import Base
