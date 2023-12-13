@@ -9,6 +9,7 @@ import csv
 import os.path
 import turtle
 
+
 class Base:
     """Class Base that defines base objects"""
     __nb_objects = 0
