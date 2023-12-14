@@ -89,3 +89,7 @@ attributes already set.
 ### Task 19 - File to instances
 Class Base is updated by adding a class method that returns list of instances  
 
+### Task 20 - JSON ok, but CVS
+In this task, the class Base was updated with two methods  
+A class method to serialize in CVS
+Another class method to dezerialize in CVS
