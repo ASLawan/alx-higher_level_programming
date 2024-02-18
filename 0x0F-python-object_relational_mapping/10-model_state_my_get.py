@@ -6,12 +6,12 @@
 """
 import sys
 from sqlalchemy import create_engine
-from sqlachemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         print("Usage: < filename > < username >\
                 < password > < database >")
         sys.exit(1)
@@ -24,7 +24,7 @@ if __name__ == "__main__":
         engine = create_engine(f'mysql://{username}\
                 :{password}@localhost:3306/{db_name}')
 
-        Base.metadata.create.all(engine)
+        Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session = Session()
 
