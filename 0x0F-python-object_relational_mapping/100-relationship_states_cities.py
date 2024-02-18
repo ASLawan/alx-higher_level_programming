@@ -5,10 +5,10 @@
 
 """
 import sys
-from sqlachemy import create_engine
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relations_city import City
-from relations_state import Base, State
+from relationship_city import City
+from relationship_state import Base, State
 
 
 if __name__ == "__main__":
@@ -23,14 +23,17 @@ if __name__ == "__main__":
         engine = create_engine(f'mysql://{username} : {password}\
                                 @localhost:3306/{db_name}')
 
-        Base.metadata.create.all(engine)
+        Base.metadata.create_all(engine)
 
         Session = sessionmaker(bind=engine)
 
         session = Session()
 
-        state_and_cities = State(name="California",
-                                 cities=[City(name="San Francisco")])
-        session.add(state_and_cities)
+        new_state = State(name='California')
+        new_state_city = City(name='San Francisco')
+        new_state.cities.append(new_state_city)
+
+        session.add(new_state)
+        session.add(new_state_city)
         session.commit()
         session.close()
