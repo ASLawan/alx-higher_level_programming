@@ -6,7 +6,7 @@
 """
 import sys
 from sqlalchemy import create_engine
-from sqlachemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 
@@ -20,7 +20,7 @@ if __name__ == "__main__":
         db_name = sys.argv[3]
         engine = create_engine(f'mysql://{username}\
                 :{password}@localhost:3306/{db_name}')
-        Base.metadata.create.all(engine)
+        Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session = Session()
 
