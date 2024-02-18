@@ -18,13 +18,13 @@ if __name__ == "__main__":
         db_name = sys.argv[3]
         state_name = sys.argv[4]
         port = 3306
-        db = MySQLdb.connect(
+        db_conn = MySQLdb.connect(
                 user=username,
                 passwd=password,
                 db=db_name,
                 port=port
                 )
-        cursor = db.cursor()
+        cursor = db_conn.cursor()
         query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC;"
         cursor.execute(query, (state_name,))
 
