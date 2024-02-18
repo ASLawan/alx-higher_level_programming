@@ -25,8 +25,10 @@ if __name__ == "__main__":
                 port=port
                 )
         cursor = db_conn.cursor()
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC;"
-        cursor.execute(query, (state_name,))
+        cursor.execute("SELECT * FROM states\
+                WHERE name = '{}'\
+                ORDER BY id ASC;".format(state_name))
+        # cursor.execute(query.format(state_name))
 
         rows = cursor.fetchall()
 
