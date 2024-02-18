@@ -9,13 +9,13 @@ import MySQLdb
 
 
 if __name__ == "__main__":
-    if len(argv) != 4:
+    if len(sys.argv) != 4:
         print("Usage: <filenam> <username> <password> <database>")
         sys.exit(1)
     else:
-        username = argv[1]
-        password = argv[2]
-        db_name = argv[3]
+        username = sys.argv[1]
+        password = sys.argv[2]
+        db_name = sys.argv[3]
         port = 3306
 
         db = MySQLdb.connect(
