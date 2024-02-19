@@ -26,7 +26,7 @@ if __name__ == "__main__":
                 )
         cursor = db_conn.cursor()
         cursor.execute("SELECT * FROM states\
-                WHERE name = '{}'\
+                WHERE name COLLATE utf8mb4_bin LIKE '{}'\
                 ORDER BY id ASC;".format(state_name))
         # cursor.execute(query.format(state_name))
 
