@@ -25,7 +25,8 @@ if __name__ == "__main__":
                 port=port
                 )
         cursor = db_conn.cursor()
-        query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC;"
+        query = "SELECT * FROM states WHERE name LIKE binary\
+                'N%' ORDER BY id ASC;"
         cursor.execute(query)
         states = cursor.fetchall()
 
