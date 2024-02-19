@@ -21,8 +21,8 @@ if __name__ == "__main__":
         db_name = sys.argv[3]
         state_name = sys.argv[4]
 
-        engine = create_engine(f'mysql://{username}\
-                :{password}@localhost:3306/{db_name}')
+        engine = create_engine('mysql://{}:{}@localhost:3306/{}'
+                               .format(username, password, db_name))
 
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
@@ -32,7 +32,7 @@ if __name__ == "__main__":
             filter(State.name == state_name).first()
 
         if (state):
-            print(f"{state.id}")
+            print("{}".format(state.id))
         else:
             print("Not found")
 
