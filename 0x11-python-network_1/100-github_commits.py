@@ -17,9 +17,9 @@ def get_commits(repo, owner):
         for commit in commits:
             sha = commit['sha']
             author = commit['commit']['author']['name']
-            print(f"{sha}: {author}")
+            print("{}: {}".format(sha, author))
         else:
-            print(f"Error: {response.status_code}")
+            print("Error: {}".format(response.status_code))
 
 
 if __name__ == "__main__":
