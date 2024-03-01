@@ -13,7 +13,7 @@ if __name__ == "__main__":
     email = sys.argv[2]
 
     data = urllib.parse.urlencode({'email': email})
-    data = data.encode('utf-8')
+    data = data.encode('ascii')
 
     with urllib.request.urlopen(url, data) as response:
         body = response.read().decode('utf-8')
