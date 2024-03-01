@@ -16,10 +16,10 @@ def get_commits(repo, owner):
         commits = response.json()[:10]
         for commit in commits:
             sha = commit['sha']
-            author = commit['commit']['author']['name']
-            print("{}: {}".format(sha, author))
-        else:
-            print("Error: {}".format(response.status_code))
+            author_name = commit['commit']['author']['name']
+            print("{}: {}".format(sha, author_name))
+    else:
+        print("Error: {}".format(response.status_code))
 
 
 if __name__ == "__main__":
