@@ -22,7 +22,7 @@ if __name__ == "__main__":
         data = response.json()
 
         if data:
-            print(f"[{}] {}".format(data.get('id'), data.get('name')))
+            print(f"[{}] {}".format(data['id'], data['name']))
         else:
             print("No result")
     except ValueError:
