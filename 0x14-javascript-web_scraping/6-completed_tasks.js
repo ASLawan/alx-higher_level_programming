@@ -26,5 +26,5 @@ request.get(apiUrl, (err, response, body) => {
       completedTasks[todo.userId]++;
     }
   });
-    console.log(completedTasks);
+  console.log(completedTasks);
 });
